@@ -28,3 +28,6 @@ yarn-error.log*
 # logs
 /logs/**/*.log
 /logs/**/*.json
+
+/**/__MACOSX/*
+/**/*bedrock_server

@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mc:
+    build: .
+    ports:
+      - '19132:19132/udp'
+      - '19133:19133/udp'
+    volumes:
+      - ./server/permissions.json:/permissions.json
+      - ./server/whitelist.json:/whitelist.json
+      - ./server/server.properties:/server.properties
+      - ./server/behavior_packs:/behavior_packs
+      - ./server/resource_packs:/resource_packs
+      - ./server/worlds/:/worlds
+    restart: unless-stopped

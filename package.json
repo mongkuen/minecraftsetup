@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "updateIp": "node ./src/index.js"
+    "updateIpService": "node ./src/index.js",
+    "startMinecraft": "unzip -n ./minecraft/server/bedrock_server.zip -d minecraft/server && docker-compose -f ./minecraft/docker-compose.yml up"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
