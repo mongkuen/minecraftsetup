@@ -1,4 +1,4 @@
-FROM ubuntu:18
+FROM fedora:30
 
 ADD server/ /
 
