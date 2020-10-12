@@ -1,4 +1,4 @@
-const { logInfo, logError } = require('./logger')
+const { logInfo, logError, logWarn } = require('./logger')
 
 const handleErrorLogging = ({ label, error }) => {
   error instanceof Error
@@ -32,7 +32,9 @@ const logHomeRecreate = (err, message) => {
 }
 
 const logIpCompare = (err, message) => {
-  err ? undefined : logInfo({ label: 'IP compared', message })
+  err
+    ? logWarn({ label: 'IP compare mismatch', message })
+    : logInfo({ label: 'IP compare match', message })
 }
 
 const logDnsCheck = (err, message) => {

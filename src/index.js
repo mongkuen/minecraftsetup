@@ -12,21 +12,27 @@ const updateNetlifyDns = async () => {
 
   if (homeRecord && ip) {
     if (homeRecord.value === ip) {
-      logIpCompare(null, 'Current IP matches DNS record, no actions taken')
+      logIpCompare(
+        null,
+        `Current IP matches DNS record (${ip}), no actions taken`
+      )
     } else {
-      logIpCompare(null, 'Current IP mismatch DNS record, recreating record')
-      recreateHomeRecord(homeRecord, ip)
+      logIpCompare(
+        true,
+        `Current IP (${ip}) mismatch DNS record (${homeRecord.value}), recreating record`
+      )
+      await recreateHomeRecord(homeRecord, ip)
     }
   }
   logDnsCheck(null, '***** DONE! *****')
 }
 
-const init = () => {
+const init = async () => {
   const twentyMinutes = 1000 * 60 * 20
 
-  updateNetlifyDns()
-  setInterval(() => {
-    updateNetlifyDns()
+  await updateNetlifyDns()
+  setInterval(async () => {
+    await updateNetlifyDns()
   }, twentyMinutes)
 }
 

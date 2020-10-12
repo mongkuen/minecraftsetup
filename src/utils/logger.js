@@ -26,7 +26,7 @@ const cliFormat = format.combine(
 
     //
     // CLI format
-    // [info]	 - IP query success	 (2020-10-12T00:32:44.735Z):	 123.123.123.123
+    // [info]	 (2020-10-12T20:35:15.777Z) - Home DNS record was found: serve.mongkuen.com (5f84bcb4b5b36e2f68910479) found @ 209.50.7.38
     //
     const baseMsg = `${level} ${timestamp} ${label} ${info.message}`
     return info.stacktrace ? `${baseMsg}\n${info.stacktrace}` : baseMsg
@@ -66,5 +66,6 @@ const logger = winston.createLogger({
 module.exports = {
   logger: logger,
   logInfo: logger.info,
+  logWarn: logger.warn,
   logError: logger.error,
 }
