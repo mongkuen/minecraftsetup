@@ -21,14 +21,14 @@ const cliFormat = format.combine(
     const colorMsg = colors[color]
 
     const level = colorMsg(`[${info.level}]\t`)
-    const label = `- ${colorMsg(info.label)}\t`
-    const timestamp = colors.grey(`(${info.timestamp}):\t`)
+    const label = `- ${colorMsg(info.label)}:`
+    const timestamp = colors.grey(`(${info.timestamp})`)
 
     //
     // CLI format
     // [info]	 - IP query success	 (2020-10-12T00:32:44.735Z):	 123.123.123.123
     //
-    const baseMsg = `${level} ${label} ${timestamp} ${info.message}`
+    const baseMsg = `${level} ${timestamp} ${label} ${info.message}`
     return info.stacktrace ? `${baseMsg}\n${info.stacktrace}` : baseMsg
   })
 )

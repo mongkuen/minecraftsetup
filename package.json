@@ -6,6 +6,7 @@
     "updateIp": "node ./src/index.js"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "netlify": "netlify/js-client",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.0"
