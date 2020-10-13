@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "start": "yarn startMinecraft && yarn startDns && yarn updateIpService",
     "updateIpService": "node ./src/index.js",
     "startMinecraft": "unzip -n ./minecraft/server/bedrock_server.zip -d minecraft/server && docker-compose -f ./minecraft/docker-compose.yml up -d",
     "startDns": "docker-compose -f ./dns/docker-compose.yml up -d"
