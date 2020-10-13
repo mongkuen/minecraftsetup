@@ -11,4 +11,7 @@ services:
       - type: bind
         source: ./dnsmasq.conf
         target: /etc/dnsmasq.conf
+      - type: bind
+        source: ./dnsmasq.hosts
+        target: /etc/dnsmasq.hosts
     restart: unless-stopped
