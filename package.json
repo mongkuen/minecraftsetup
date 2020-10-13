@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "updateIpService": "node ./src/index.js",
-    "startMinecraft": "unzip -n ./minecraft/server/bedrock_server.zip -d minecraft/server && docker-compose -f ./minecraft/docker-compose.yml up",
-    "startDns": "docker-compose -f ./dns/docker-compose.yml up"
+    "startMinecraft": "unzip -n ./minecraft/server/bedrock_server.zip -d minecraft/server && docker-compose -f ./minecraft/docker-compose.yml up -d",
+    "startDns": "docker-compose -f ./dns/docker-compose.yml up -d"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
