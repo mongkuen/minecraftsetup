@@ -16,6 +16,12 @@ const logIpQuery = (err, message) => {
     : logInfo({ label: 'IP query success', message })
 }
 
+const logDockerRestart = (err, message) => {
+  err
+    ? handleErrorLogging({ label: 'DNS docker restart failure', error: err })
+    : logInfo({ label: 'DNS docker restart success', message })
+}
+
 const logHomeRecord = (err, message) => {
   err
     ? handleErrorLogging({ label: 'Home DNS record not found', error: err })
@@ -43,6 +49,7 @@ const logDnsCheck = (err, message) => {
 
 module.exports = {
   logIpQuery,
+  logDockerRestart,
   logHomeRecord,
   logHomeRecreate,
   logIpCompare,

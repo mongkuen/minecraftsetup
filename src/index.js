@@ -2,8 +2,10 @@ const dotenv = require('dotenv')
 dotenv.config()
 const { logIpCompare, logDnsCheck } = require('./utils/logActions')
 const { getIp } = require('./utils/getIp')
+const { getDnsmasqIp } = require('./utils/getDnsmasqIp')
 const { getHomeRecord } = require('./utils/getHomeRecord')
 const { recreateHomeRecord } = require('./utils/recreateHomeRecord')
+const { restartDockerDns } = require('./utils/restartDockerDns')
 
 const updateNetlifyDns = async () => {
   logDnsCheck(null, '***** STARTING... *****')
@@ -24,6 +26,10 @@ const updateNetlifyDns = async () => {
       await recreateHomeRecord(homeRecord, ip)
     }
   }
+
+  const dnsmasqIp = getDnsmasqIp()
+  if (dnsmasqIp && ip && dnsmasqIp !== ip) await restartDockerDns(ip)
+
   logDnsCheck(null, '***** DONE! *****')
 }
 
