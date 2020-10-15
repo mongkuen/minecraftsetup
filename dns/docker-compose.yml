@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 services:
   dns:
     build: .
@@ -9,9 +9,9 @@ services:
       - NET_ADMIN
     volumes:
       - type: bind
-        source: './dnsmasq.conf'
-        target: '/etc/dnsmasq.conf'
+        source: ./dnsmasq.conf
+        target: /etc/dnsmasq.conf
       - type: bind
-        source: './dnsmasq.hosts'
-        target: '/etc/dnsmasq.hosts'
+        source: ./dnsmasq.hosts
+        target: /etc/dnsmasq.hosts
     restart: unless-stopped
